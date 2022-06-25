@@ -1,11 +1,14 @@
 import pytest
 
 def fizzBuzz(value):
-    if (value % 3) == 0:
+    if isMultiple(value, 3):
         return "Fizz"
-    if (value % 5) == 0:
+    if isMultiple(value, 5):
         return "Buzz"
     return str(value)
+
+def isMultiple(value, modulus):
+    return (value % modulus) == 0
 
 def checkFizzBuzz(value, expectedRetVal):
     retVal = fizzBuzz(value)
