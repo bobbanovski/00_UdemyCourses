@@ -2,6 +2,8 @@ import pytest
 
 def fizzBuzz(value):
     if isMultiple(value, 3):
+        if isMultiple(value, 5):
+            return "FizzBuzz"
         return "Fizz"
     if isMultiple(value, 5):
         return "Buzz"
