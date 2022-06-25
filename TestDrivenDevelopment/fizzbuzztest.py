@@ -1,7 +1,7 @@
 import pytest
 
 def fizzBuzz(value):
-    return "1"
+    return str(value)
 
 def test_returns1With1PassedIn():
     retVal = fizzBuzz(1)
