@@ -31,3 +31,6 @@ def test_returnBuzzWith5PassedIn():
 
 def test_returnBuzzWith10PassedIn():
     checkFizzBuzz(10, "Buzz")
+
+def test_returnFizzBuzzWith15PassedIn():
+    checkFizzBuzz(15, "FizzBuzz")
