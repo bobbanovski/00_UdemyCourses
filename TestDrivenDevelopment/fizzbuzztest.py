@@ -1,4 +1,3 @@
-import pytest
 
 def fizzBuzz(value):
     if isMultiple(value, 3):
