@@ -1,3 +1,10 @@
+def setup_module(module):
+    # setup/teardown_module called before setup/teardown function calls
+    print("\nSetup Module")
+
+def teardown_module(module):
+    print("\nTeardown Module")
+
 def setup_function(function):
     if function == test1:
         print("\nSetting up test1")
