@@ -16,6 +16,8 @@ class Checkout:
 
     def addItem(self, item):
         # self.total += self.prices[item]
+        if item not in self.prices:
+            raise Exception
         if item in self.items:
             self.items[item] += 1
         else:
