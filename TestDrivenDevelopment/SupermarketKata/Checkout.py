@@ -25,24 +25,28 @@ class Checkout:
         # return self.total
         total = 0
         for item, cnt in self.items.items():
-            # If item is a discount item
-            if item in self.discounts:
-                # If number of items added >= number required for discount
-                discount = self.discounts(item)
-                if cnt >= discount.numItems:
-                    num_discounts = cnt/discount.numItems
-                    total += num_discounts * discount.price
-                    # Get number of items that discount does not apply to
-                    remaining = cnt % discount.numItems
-                    total += remaining * self.prices[item]
-                else:
-                    # Apply normal pricing
-                    total += self.prices[item] * cnt
-            else:
-                total += self.prices[item] * cnt
+            total += self.calculateItemTotal(item, cnt)
         return total
 
     def addDiscount(self, item, numItems, price):
         discount = self.Discount(numItems, price)
         self.discounts[item] = discount
 
+    def calculateItemTotal(self, item, cnt):
+        total = 0
+        # If item is a discount item
+        if item in self.discounts:
+            # If number of items added >= number required for discount
+            discount = self.discounts[item]
+            if cnt >= discount.numItems:
+                num_discounts = cnt / discount.numItems
+                total += num_discounts * discount.price
+                # Get number of items that discount does not apply to
+                remaining = cnt % discount.numItems
+                total += remaining * self.prices[item]
+            else:
+                # Apply normal pricing
+                total += self.prices[item] * cnt
+        else:
+            total += self.prices[item] * cnt
+        return total
